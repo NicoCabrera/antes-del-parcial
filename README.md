@@ -69,4 +69,4 @@ LocalDataSource
  user el smart-table, configurarlo, sus eventos.
  Manejar eventos con ().
 
- En caso de ir a recuperatorio.
+ En caso de ir a recuperatorio va a ser un ABM utilizando todos lo verbos que provee http de angular 2.
