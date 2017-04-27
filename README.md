@@ -1,28 +1,72 @@
-# AntesDelParcial
+# Antes de empezar, un recordatorio:
+Las maquinas de la facultad (al dia de hoy 27/04/2017) tiene el angular cli desactualizado.
+Siempre al llegar, ejecutar en la consola:
+- npm uninstall -g angular/cli
+- npm cache clean
+- npm install -g angular/cli@latest
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.1.
+Es importante saber que primero hay que ejecutar estos comandos, y después crear el proyecto.
+El error más común (He visto desertar a alumnos por atrasarse en las clases por esta PAVADA) es generar primero el proyecto, y al querer ejecutarlo les salta el error, actualizan el cli, pero siguen tratando de lanzar el proyecto generado con el anterior CLI.
+No lo hagas.
+Es malo.
+No sigas intentando.
+***
+# Ejemplo de servicio
+Usamos https://restcountries.eu/ desde donde nos traemos on json con datos para probar las peticiones que se realizan por el protocolo http.
+Usamos el servicio Http de Angular 2.
+Creamos un servicio con el comando 'ng generate service' seguido de la ruta './services/datos'.
 
-## Development server
+# Consumir el servicio
+Para proveernos de un servicio, hay que importarlo e incluirlo en 'providers' (archivo del modulo ppal).
+Luego lo incluimos en el/los componentes que lo van a consumir con el import.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+import { DatosService } from './services/datos.service';
 
-## Code scaffolding
+entonces podemos inyectarlo. Pasandolo como un parámetro al constructor de la clase.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
 
-## Build
+Empezamos a crear métodos dentro de nuestro servicio para poder consumir de nuestro servicio.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+traerDatos(){
+    //...
+} 
 
-## Running unit tests
+Ahora importamos algunos modulos de Angular2 en el servicio creado anteriormente.
+```sh
+ARCHIVO ./services/datos.service
+```
+import { Http, Response } from '@angular/http';
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+Para poder trabajar con los operadores de la libreria RxJS sobre los Observables que nos
+sirve el Http importamos
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+```sh
+import 'rxjs/add/operator/toPromise';
+```
 
-## Further help
+(Promesas: tienen dos métodos. then y catch. son los callback)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Clase del componente ng2-samrt-table
+LocalDataSource
+
+# IMPORTANTE!!!! Temas para el primer parcial
+ Durante el examen vamos a tomar datos de dos páginas:
+ - http://mockaroo.com/
+ - http://www.mocky.io/
+
+ Uno crea wl json.
+ Otro crea una direccion temporal para leer datos.
+ Testearlos.
+
+ Crear un services, tomar esos datos.
+ Usar ngIF, ngFor, ngStyle.
+ Por cada ngFor vamos a tener distitas propiedades.
+ Cargar una imagen con [src]
+
+ traer los datos por get.
+ Hacer un insert por get tambien.(no llegamos a ver el post)
+ user el smart-table, configurarlo, sus eventos.
+ Manejar eventos con ().
+
+ En caso de ir a recuperatorio.
